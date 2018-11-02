@@ -78,6 +78,27 @@ describe('Gilded Rose', () => {
           gildedRose.updateQuality();
           expect(gildedRose.items[0].quality).toEqual(21);
         });
+        it('quality increases by 2 when 6 - 10 days until concert', () => {
+          let times = 7;
+          for (let i=0; i < times; i++) {
+            gildedRose.updateQuality();
+          }
+          expect(gildedRose.items[0].quality).toEqual(29);
+        });
+        it('quality increases by 3 when 5 or less days left', () => {
+          let times = 14;
+          for (let i=0; i < times; i++) {
+            gildedRose.updateQuality();
+          }
+          expect(gildedRose.items[0].quality).toEqual(47);
+        });
+        it('quality drops to 0 after concert is over', () => {
+          let times = 16;
+          for (let i=0; i < times; i++) {
+            gildedRose.updateQuality();
+          }
+          expect(gildedRose.items[0].quality).toEqual(0);
+        });
       });
     
     });
