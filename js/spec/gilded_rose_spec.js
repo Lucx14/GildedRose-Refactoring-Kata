@@ -2,18 +2,21 @@ describe('Gilded Rose', () => {
 
   describe('Item constructor', () => {
 
+    let gildedRose;
+
+    beforeEach(() => {
+      gildedRose = new Shop([ new Item("foo", 0, 0) ]);
+    });
+
     it('Item name', () => {
-      const gildedRose = new Shop([ new Item("foo", 0, 0) ]);
       expect(gildedRose.items[0].name).toEqual("foo");
     });
   
     it('Item quality', () => {
-      const gildedRose = new Shop([ new Item("foo", 0, 0) ]);
       expect(gildedRose.items[0].quality).toEqual(0);
     });
 
     it('Item sellIn', () => {
-      const gildedRose = new Shop([ new Item("foo", 0, 0) ]);
       expect(gildedRose.items[0].sellIn).toEqual(0);
     });
   });
