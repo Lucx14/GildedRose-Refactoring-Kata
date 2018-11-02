@@ -32,7 +32,7 @@ describe('Gilded Rose', () => {
           gildedRose = new Shop([ new Item("Aged Brie", 2, 0) ]);
         });
 
-        it('SellIn days count down', () => {
+        it('sellIn days count down', () => {
           gildedRose.updateQuality();
           gildedRose.updateQuality();
           gildedRose.updateQuality();
@@ -41,12 +41,12 @@ describe('Gilded Rose', () => {
           expect(gildedRose.items[0].sellIn).toEqual(-3);
         });
 
-        it('Quality increases by 1 for each update before sellIn date', () => {
+        it('quality increases by 1 for each update before sellIn date', () => {
           gildedRose.updateQuality();
           gildedRose.updateQuality();
           expect(gildedRose.items[0].quality).toEqual(2);
         });
-        it('Quality increments by 2 after the sellIn date', () => {
+        it('quality increments by 2 after the sellIn date', () => {
           gildedRose.updateQuality();
           gildedRose.updateQuality();
           gildedRose.updateQuality();
@@ -54,15 +54,27 @@ describe('Gilded Rose', () => {
           gildedRose.updateQuality();
           expect(gildedRose.items[0].quality).toEqual(8);
         });
-        it('Quality has max limit of 50', () => {
+        it('quality has max limit of 50', () => {
           let times = 50;
           for (let i=0; i < times; i++) {
             gildedRose.updateQuality();
           }
           expect(gildedRose.items[0].quality).toEqual(50);
-
         });
       }); 
+
+      describe('Backstage passes', () => {
+        let gildedRose;
+
+        beforeEach(() => {
+          gildedRose = new Shop([ new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20) ]);
+        });
+
+        it('sellIn days count down by 1 for each update', () => {
+          gildedRose.updateQuality();
+          expect(gildedRose.items[0].sellIn).toEqual(14);
+        });
+      });
     
     });
 
