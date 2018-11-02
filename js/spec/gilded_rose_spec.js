@@ -74,6 +74,10 @@ describe('Gilded Rose', () => {
           gildedRose.updateQuality();
           expect(gildedRose.items[0].sellIn).toEqual(14);
         });
+        it('quality increases by 1 when more than 10 days to concert', () => {
+          gildedRose.updateQuality();
+          expect(gildedRose.items[0].quality).toEqual(21);
+        });
       });
     
     });
