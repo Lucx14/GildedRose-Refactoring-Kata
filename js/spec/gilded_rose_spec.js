@@ -99,6 +99,13 @@ describe('Gilded Rose', () => {
           }
           expect(gildedRose.items[0].quality).toEqual(0);
         });
+        it('quality max is 50', () => {
+          let gildedRose2 = new Shop([ new Item('Backstage passes to a TAFKAL80ETC concert', 10, 49) ]);
+          gildedRose2.updateQuality();
+          gildedRose2.updateQuality();
+          gildedRose2.updateQuality();
+          expect(gildedRose2.items[0].quality).toEqual(50);
+        });
       });
     
     });
