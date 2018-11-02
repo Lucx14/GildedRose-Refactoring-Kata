@@ -1,13 +1,3 @@
-class Item {
-  constructor(name, sellIn, quality){
-    this.name = name;
-    // selIn value = number of days we have to sell the item
-    this.sellIn = sellIn;
-    //  quality is how valuable the item is
-    this.quality = quality;
-  }
-}
-
 class Shop {
   constructor(items=[]){
     this.items = items;
