@@ -2,43 +2,7 @@ describe('Shop class', () => {
 // these are really mainly feature tests!!
   describe('updateQuality function', () => {
 
-    describe('Aged Brie', () => {
-      let gildedRose;
-
-      beforeEach(() => {
-        gildedRose = new Shop([ new Item("Aged Brie", 2, 0) ]);
-      });
-
-      it('sellIn days count down', () => {
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
-        expect(gildedRose.items[0].sellIn).toEqual(-3);
-      });
-
-      it('quality increases by 1 for each update before sellIn date', () => {
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
-        expect(gildedRose.items[0].quality).toEqual(2);
-      });
-      it('quality increments by 2 after the sellIn date', () => {
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
-        expect(gildedRose.items[0].quality).toEqual(8);
-      });
-      it('quality has max limit of 50', () => {
-        let times = 50;
-        for (let i=0; i < times; i++) {
-          gildedRose.updateQuality();
-        }
-        expect(gildedRose.items[0].quality).toEqual(50);
-      });
-    }); 
+    
 
     describe('Backstage passes', () => {
       let gildedRose;
@@ -104,35 +68,7 @@ describe('Shop class', () => {
       });
     });
 
-    describe('Normal product', () => {
-      let gildedRose;
 
-      beforeEach(() => {
-        gildedRose = new Shop([ new Item('Normal product', 2, 10) ]);
-      });
-      it('sellIn days count down by 1 for each update', () => {
-        gildedRose.updateQuality();
-        expect(gildedRose.items[0].sellIn).toEqual(1);
-      });
-      it('quality is reduced by 1 each update before the sell in date', () => {
-        gildedRose.updateQuality();
-        expect(gildedRose.items[0].quality).toEqual(9);
-      });
-      it('quality is reduced by 2 each update after the sell in date', () => {
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
-        expect(gildedRose.items[0].quality).toEqual(4);
-      });
-      it('quality cannot be less than zero', () => {
-        let times = 16;
-        for (let i=0; i < times; i++) {
-          gildedRose.updateQuality();
-        }
-        expect(gildedRose.items[0].quality).toEqual(0);
-      });
-    });
   
   });
 
@@ -161,6 +97,14 @@ describe('Shop class', () => {
       expect(gildedRose.items[0].quality).toEqual(0);
     });
   });
+
+  // describe('update quality', () => {
+  //   let gildedRose = new Shop([ new Item("Aged Brie", 2, 0) ]);
+  //     gildedRose.categorize();
+  //     gildedRose.runStockUpdate();
+  //     gildedRose.updateQuality();
+  //     expect(item.update()).toHaveBeenCalled();
+  // });
 
 });
   
