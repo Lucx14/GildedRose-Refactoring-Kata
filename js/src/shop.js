@@ -4,7 +4,6 @@ class Shop {
   }
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
-
       
       if (this.items[i].name != 'Aged Brie' && this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
         if (this.items[i].quality > 0) {
@@ -53,4 +52,23 @@ class Shop {
 
     return this.items;
   }
+
+
+
+
+  categorize() {
+    // i want a function here to update/replace the entire items array with properly categorized items
+    this.items.splice(0, 1, new AgedBrie("AgedBrie", 2, 0));
+  }
+
+
+  runStockUpdate() {
+    // maybe a seperate function to run the update 
+  }
+
+
+
+
+
+
 }

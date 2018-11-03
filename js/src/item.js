@@ -4,6 +4,12 @@ class Item {
     this.sellIn = sellIn;
     this.quality = quality;
   }
+
+  update() {
+    this.sellIn <= 0 ? this.quality -= 2 : this.quality -= 1;
+    this.quality <= 0 ? this.quality = 0 : null;
+    this.sellIn -= 1;
+  }
 }
 
 

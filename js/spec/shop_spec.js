@@ -1,5 +1,5 @@
 describe('Shop class', () => {
-
+// these are really mainly feature tests!!
   describe('updateQuality function', () => {
 
     describe('Aged Brie', () => {
@@ -134,6 +134,16 @@ describe('Shop class', () => {
       });
     });
   
+  });
+
+
+
+  describe('categorize', () => {
+    it('modifies the items array to categorise all items', () => {
+      let gildedRose = new Shop([ new Item("Aged Brie", 2, 0) ]);
+      gildedRose.categorize();
+      expect(gildedRose.items[0]).toEqual(jasmine.any(AgedBrie));
+    });
   });
 
 });
