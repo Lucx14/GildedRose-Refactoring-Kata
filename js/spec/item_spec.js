@@ -31,7 +31,7 @@ describe('Normal', () => {
     expect(item.sellIn).toEqual(1);
   });
 
-  it('quality -1 each update if sellIn > 0', () => {
+  it('quality -1 each update if sellIn >= 0', () => {
     item.update();
     expect(item.quality).toEqual(3);
   });
@@ -49,5 +49,36 @@ describe('Normal', () => {
     item.update();
     item.update();
     expect(item.quality).toEqual(0);
+  });
+});
+
+
+describe('Aged Brie', () => {
+  let item;
+
+  beforeEach(() => {
+    item = new AgedBrie("Aged Brie", 2, 0);
+  });
+
+  it('sellIn days count down by 1 each update', () => {
+    item.update();
+    expect(item.sellIn).toEqual(1);
+  });
+  it('quality +1 if sellIn >= 0', () => {
+    item.update();
+    expect(item.quality).toEqual(1);
+  });
+  it('quality +2 if sellIn < 0', () => {
+    item.update();
+    item.update();
+    item.update();
+    expect(item.quality).toEqual(4);
+  });
+  it('quality cannot be > 50', () => {
+    let times = 50;
+        for (let i=0; i < times; i++) {
+          item.update();
+        }
+        expect(item.quality).toEqual(50);
   });
 });
