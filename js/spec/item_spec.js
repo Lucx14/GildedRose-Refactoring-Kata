@@ -82,3 +82,49 @@ describe('Aged Brie', () => {
         expect(item.quality).toEqual(50);
   });
 });
+
+describe('Backstage Passes', () => {
+  let item;
+
+  beforeEach(() => {
+    item = new BackstagePass('Backstage passes to a TAFKAL80ETC concert', 15, 20);
+  });
+
+  it('sellIn days count down by 1 each update', () => {
+    item.update();
+    expect(item.sellIn).toEqual(14);
+  });
+  it('quality +1 if sellIn > 10', () => {
+    item.update();
+    expect(item.quality).toEqual(21);
+  });
+  it('quality +2 if 6 <= sellIn <= 10', () => {
+    let times = 7;
+        for (let i=0; i < times; i++) {
+          item.update();
+        }
+        expect(item.quality).toEqual(30);
+  });
+  it('quality +3 if sellIn <= 5', () => {
+    let times = 14;
+        for (let i=0; i < times; i++) {
+          item.update();
+        }
+        expect(item.quality).toEqual(49);
+  });
+  it('quality 0 when sellIn < 0', () => {
+    let times = 16;
+        for (let i=0; i < times; i++) {
+          item.update();
+        }
+        expect(item.quality).toEqual(0);
+  });
+  it('quality max is 50', () => {
+    let item2 = new BackstagePass('Backstage passes to a TAFKAL80ETC concert', 10, 49);
+        item2.update();
+        item2.update();
+        item2.update();
+        expect(item2.quality).toEqual(50);
+  });
+
+});
