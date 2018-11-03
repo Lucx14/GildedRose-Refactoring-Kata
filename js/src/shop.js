@@ -68,8 +68,11 @@ class Shop {
   }
 
   categorize() {
-    // i want a function here to update/replace the entire items array with properly categorized items
-    this.items.splice(0, 1, new AgedBrie("AgedBrie", 2, 0));
+    this.categorizedItems = [];
+    this.items.forEach(item => {
+      const CorrectClass = this.itemClasses[this.getItemClass(item)];
+      this.categorizedItems.push(new CorrectClass(item.name, item.sellIn, item.quality));
+    });
   }
 
 

@@ -149,7 +149,7 @@ describe('Shop class', () => {
     it('modifies the items array to categorise all items', () => {
       let gildedRose = new Shop([ new Item("Aged Brie", 2, 0) ]);
       gildedRose.categorize();
-      expect(gildedRose.items[0]).toEqual(jasmine.any(AgedBrie));
+      expect(gildedRose.categorizedItems[0]).toEqual(jasmine.any(AgedBrie));
     });
   });
 
