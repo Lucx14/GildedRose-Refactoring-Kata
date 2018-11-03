@@ -1,7 +1,15 @@
 class Shop {
   constructor(items=[]){
     this.items = items;
+    this.itemClasses = {
+      'default': Normal,
+      'Aged Brie': AgedBrie,
+      'Backstage passes': BackstagePass,
+      'Sulfuras': Sulfuras,
+      'Conjured': Conjured
+    }
   }
+
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
       
@@ -54,7 +62,10 @@ class Shop {
   }
 
 
-
+  getItemClass(item) {
+    const classNames = Object.keys(this.itemClasses);
+    return classNames.find(name => item.name.includes(name)) || 'default';
+  }
 
   categorize() {
     // i want a function here to update/replace the entire items array with properly categorized items

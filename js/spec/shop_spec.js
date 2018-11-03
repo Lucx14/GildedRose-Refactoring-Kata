@@ -138,6 +138,13 @@ describe('Shop class', () => {
 
 
 
+  describe('getItemClass', () => {
+    it('will get the correct key from the itemClasses matrix', () => {
+      let gildedRose = new Shop([ new Item("Aged Brie", 2, 0) ]);
+      expect(gildedRose.getItemClass(gildedRose.items[0])).toEqual('Aged Brie');
+    });
+  });
+
   describe('categorize', () => {
     it('modifies the items array to categorise all items', () => {
       let gildedRose = new Shop([ new Item("Aged Brie", 2, 0) ]);
