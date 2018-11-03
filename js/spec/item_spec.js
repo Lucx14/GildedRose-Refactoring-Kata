@@ -145,3 +145,33 @@ describe('Sulfuras', () => {
     expect(item.sellIn).toEqual(0);
   });
 });
+
+describe('Conjured', () => {
+  let item;
+
+  beforeEach(() => {
+    item = new Conjured("Conjured product", 2, 10);
+  });
+
+  it('sellIn days count down by 1 each update', () => {
+    item.update();
+    expect(item.sellIn).toEqual(1);
+  });
+  it('quality -2 each update if sellIn >= 0', () => {
+    item.update();
+    expect(item.quality).toEqual(8);
+  });
+  it('quality -4 each update if sellIn < 0', () => {
+    item.update();
+    item.update();
+    item.update();
+    expect(item.quality).toEqual(2)
+  });
+  it('quality cannot be < 0', () => {
+    item.update();
+    item.update();
+    item.update();
+    item.update();
+    expect(item.quality).toEqual(0);
+  });
+});

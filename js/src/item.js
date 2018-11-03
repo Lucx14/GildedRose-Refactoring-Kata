@@ -66,3 +66,16 @@ class Sulfuras extends Item {
     return;
   }
 }
+
+
+class Conjured extends Item {
+  constructor(name, sellIn, quality){
+    super(name, sellIn, quality);
+  }
+
+  update() {
+    this.sellIn <= 0 ? this.quality -= 4 : this.quality -= 2;
+    this.quality < 0 ? this.quality = 0 : null;
+    this.sellIn -= 1;
+  }
+}
