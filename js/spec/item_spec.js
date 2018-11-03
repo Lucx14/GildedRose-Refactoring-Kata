@@ -103,14 +103,14 @@ describe('Backstage Passes', () => {
         for (let i=0; i < times; i++) {
           item.update();
         }
-        expect(item.quality).toEqual(30);
+        expect(item.quality).toEqual(29);
   });
   it('quality +3 if sellIn <= 5', () => {
     let times = 14;
         for (let i=0; i < times; i++) {
           item.update();
         }
-        expect(item.quality).toEqual(49);
+        expect(item.quality).toEqual(47);
   });
   it('quality 0 when sellIn < 0', () => {
     let times = 16;
