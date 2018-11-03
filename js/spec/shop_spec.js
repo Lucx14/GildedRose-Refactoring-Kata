@@ -146,10 +146,19 @@ describe('Shop class', () => {
   });
 
   describe('categorize', () => {
-    it('modifies the items array to categorise all items', () => {
+    it('creates a new constructor variable containing categorized items', () => {
       let gildedRose = new Shop([ new Item("Aged Brie", 2, 0) ]);
       gildedRose.categorize();
       expect(gildedRose.categorizedItems[0]).toEqual(jasmine.any(AgedBrie));
+    });
+  });
+
+  describe('runStockUpdate', () => {
+    it('updates the item objects sellIn and quality', () => {
+      let gildedRose = new Shop([ new Item("Aged Brie", 2, 0) ]);
+      gildedRose.categorize();
+      gildedRose.runStockUpdate();
+      expect(gildedRose.items[0].quality).toEqual(0);
     });
   });
 
