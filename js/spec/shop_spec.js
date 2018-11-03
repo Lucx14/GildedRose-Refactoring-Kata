@@ -34,4 +34,3 @@ describe('Shop class: Unit tests', () => {
 
 });
   
-

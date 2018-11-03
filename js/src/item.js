@@ -12,7 +12,6 @@ class Item {
   }
 }
 
-
 class Normal extends Item {
   constructor(name, sellIn, quality){
     super(name, sellIn, quality);
@@ -24,7 +23,6 @@ class Normal extends Item {
     this.sellIn -= 1;
   }
 }
-
 
 class AgedBrie extends Item {
   constructor(name, sellIn, quality){
@@ -63,7 +61,6 @@ class BackstagePass extends Item {
   }
 }
 
-
 class Sulfuras extends Item {
   constructor(name, sellIn, quality){
     super(name, sellIn, quality);
@@ -72,7 +69,6 @@ class Sulfuras extends Item {
     return;
   }
 }
-
 
 class Conjured extends Item {
   constructor(name, sellIn, quality){
