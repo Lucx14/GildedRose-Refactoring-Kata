@@ -36,7 +36,7 @@ class BackstagePass extends Item {
   constructor(name, sellIn, quality){
     super(name, sellIn, quality);
   }
-  
+
   update() {
     switch(true) {
       case(this.sellIn <= 0):
@@ -54,5 +54,15 @@ class BackstagePass extends Item {
     }
     this.sellIn -= 1;
     this.quality >= 50 ? this.quality = 50 : null;
+  }
+}
+
+
+class Sulfuras extends Item {
+  constructor(name, sellIn, quality){
+    super(name, sellIn, quality);
+  }
+  update() {
+    return;
   }
 }

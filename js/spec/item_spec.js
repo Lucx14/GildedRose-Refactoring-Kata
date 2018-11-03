@@ -128,3 +128,20 @@ describe('Backstage Passes', () => {
   });
 
 });
+
+describe('Sulfuras', () => {
+  let item;
+
+  beforeEach(() => {
+    item = new Sulfuras('Sulfuras, Hand of Ragnaros', 0, 80);
+  });
+
+  it('constant quality of 80', () => {
+    item.update();
+    expect(item.quality).toEqual(80);
+  });
+  it('sellIn doesnt change', () => {
+    item.update();
+    expect(item.sellIn).toEqual(0);
+  });
+});
