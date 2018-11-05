@@ -16,7 +16,6 @@ class Shop {
     }
   }
 
-
   updateQuality() {
     this[_categorize]();
     this.categorizedItems.forEach(item => {
@@ -24,7 +23,6 @@ class Shop {
     });
     this[_runStockUpdate]();
   }
-
 
   // Private
 
@@ -47,5 +45,4 @@ class Shop {
       this.items[index].quality = item.quality;
     });
   }
-
 }
