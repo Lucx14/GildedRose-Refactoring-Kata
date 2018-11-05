@@ -1,3 +1,5 @@
+'use strict'
+
 describe('Features: Conjured items', () => {
 
   let gildedRose;

@@ -1,3 +1,5 @@
+'use strict'
+
 describe('Features: Aged Brie', () => {
   let gildedRose;
 

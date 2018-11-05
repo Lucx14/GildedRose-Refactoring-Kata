@@ -1,3 +1,5 @@
+'use strict'
+
 describe('Item class: Unit tests', () => {
 
   describe('Item', () => {

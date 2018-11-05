@@ -1,3 +1,5 @@
+'use strict'
+
 describe('Features: Normal items', () => {
 
   let gildedRose;
