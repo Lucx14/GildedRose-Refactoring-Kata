@@ -26,8 +26,7 @@ describe('Shop class: Unit tests', () => {
 
   describe('update quality', () => {
     it('updates the quality and sellin dates', () => {
-      let item = { name: 'Aged Brie', sellIn: 2, quality: 0 }
-      let gildedRose = new Shop([item]);
+      let gildedRose = new Shop([{ name: "Aged Brie", sellIn: 2, quality: 0 }]);
       gildedRose.updateQuality();
       expect(gildedRose.items[0].quality).toEqual(1);
     });
